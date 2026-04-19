@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+.board-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 90px);
+    gap: 12px;
+}
+
+.extra-row {
+    display: grid;
+    grid-template-columns: repeat(2, 90px);
+    gap: 12px;
+}
+
+.cell {
+    height: 90px;
+    border: 2px solid #333;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
