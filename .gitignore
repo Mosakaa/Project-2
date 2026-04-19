@@ -1,0 +1,7 @@
+.DS_Store
+~$*.docx
+backup_2026-04-19_pre_ai/
+backup_2026-04-19_copy_cleanup/
+backup_2026-04-19_copy_polish/
+data/users.json
+data/leaderboard.json
