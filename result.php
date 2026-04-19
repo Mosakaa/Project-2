@@ -52,16 +52,16 @@ render_header('Final Result', [
     </article>
 
     <article class="card">
-        <h2>Round Summary</h2>
-        <p><strong>Final Prompt Level:</strong> <?= h(ai_difficulty_label()) ?></p>
+        <h2>Your Run</h2>
+        <p><strong>Final Question Level:</strong> <?= h(ai_difficulty_label()) ?></p>
         <p><?= h(ai_recent_summary()) ?></p>
         <div class="metric-list">
             <div class="metric">
-                <span>Prompts Answered</span>
+                <span>Questions Answered</span>
                 <strong><?= h((string) $promptSummary['total']) ?></strong>
             </div>
             <div class="metric">
-                <span>Correct Reads</span>
+                <span>Correct Answers</span>
                 <strong><?= h((string) $promptSummary['correct']) ?></strong>
             </div>
             <div class="metric">
@@ -98,18 +98,18 @@ render_header('Final Result', [
     </article>
 
     <article class="card">
-        <h2>Performance Notes</h2>
+        <h2>How This Run Played Out</h2>
         <div class="stat-grid">
             <div class="metric">
                 <span>Play Style</span>
                 <strong><?= h($playerStyle) ?></strong>
             </div>
             <div class="metric">
-                <span>Best Category</span>
+                <span>Strongest Area</span>
                 <strong><?= h($promptSummary['best_category']) ?></strong>
             </div>
             <div class="metric">
-                <span>Best Streak</span>
+                <span>Longest Streak</span>
                 <strong><?= h((string) $promptSummary['best_streak']) ?></strong>
             </div>
             <div class="metric">
@@ -118,9 +118,9 @@ render_header('Final Result', [
             </div>
         </div>
         <ul class="help-list">
-            <li><strong>Decision profile:</strong> <?= h(banker_decision_profile($game)) ?></li>
+            <li><strong>Your approach:</strong> <?= h(banker_decision_profile($game)) ?></li>
             <li><strong>Rounds completed:</strong> <?= h((string) ($game['stats']['rounds_completed'] ?? 0)) ?></li>
-            <li><strong>Highest offer gap:</strong> <?= $highestOffer > 0 ? h(($finalVsOffer >= 0 ? '+' : '-') . '$' . money(abs($finalVsOffer))) : 'N/A' ?></li>
+            <li><strong>Compared with the top offer:</strong> <?= $highestOffer > 0 ? h(($finalVsOffer >= 0 ? '+' : '-') . '$' . money(abs($finalVsOffer))) : 'N/A' ?></li>
         </ul>
     </article>
 </section>

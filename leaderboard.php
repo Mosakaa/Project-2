@@ -22,15 +22,15 @@ render_header('Leaderboard', [
                 <strong>$<?= h(money((float) $snapshot['highest'])) ?></strong>
             </div>
             <div class="metric">
-                <span>Average Top 10</span>
+                <span>Average Payout</span>
                 <strong>$<?= h(money((float) $snapshot['average'])) ?></strong>
             </div>
             <div class="metric">
-                <span>Deals</span>
+                <span>Deal Wins</span>
                 <strong><?= h((string) $snapshot['deal_count']) ?></strong>
             </div>
             <div class="metric">
-                <span>No Deals</span>
+                <span>No Deal Wins</span>
                 <strong><?= h((string) $snapshot['no_deal_count']) ?></strong>
             </div>
         </div>
@@ -65,7 +65,7 @@ render_header('Leaderboard', [
     </article>
 
     <article class="card">
-        <h2>Hall of Fame Notes</h2>
+        <h2>What This Board Shows</h2>
         <ul class="help-list">
             <li>Username and final payout</li>
             <li>Deal or No Deal outcome</li>

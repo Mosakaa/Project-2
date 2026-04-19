@@ -625,18 +625,18 @@ function player_style_label(array $game, array $result): string
     $finalAmount = (float) ($result['final_amount'] ?? 0);
 
     if ($game['deal_taken'] && $finalAmount >= $selectedValue) {
-        return 'Calculated Exit';
+        return 'Took the Safe Money';
     }
 
     if (!$game['deal_taken'] && $finalAmount >= $highestOffer && $highestOffer > 0) {
-        return 'Bold Finish';
+        return 'Trusted the Big Case';
     }
 
     if (($game['stats']['offers_rejected'] ?? 0) >= 3) {
-        return 'High-Risk Run';
+        return 'Played for the Swing';
     }
 
-    return 'Steady Board Control';
+    return 'Balanced Run';
 }
 
 function banker_offer_growth(array $game): float
