@@ -63,8 +63,7 @@ Deal Or No Deal - PHP is a browser-based game show built with PHP, HTML, and CSS
 
 ## Scrum / Process Evidence
 
-- Sprint summary: `SPRINT_LOG.md`
 - Scrum board: `SCRUM_BOARD.md`
 - Daily standups: `STANDUP_NOTES.md`
 - Development journal: `DEVELOPMENT_JOURNAL.md`
-- Project report draft: `PROJECT_REPORT.md`
+- Project report: `PROJECT_REPORT.md`
