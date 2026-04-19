@@ -564,3 +564,115 @@ function banker_decision_profile(array $game): string
 
     return 'You balanced caution with suspense and pushed the banker carefully.';
 }
+
+function longest_correct_streak(array $answers): int
+{
+    $best = 0;
+    $current = 0;
+
+    foreach ($answers as $answer) {
+        if (!empty($answer['correct'])) {
+            $current++;
+            $best = max($best, $current);
+            continue;
+        }
+
+        $current = 0;
+    }
+
+    return $best;
+}
+
+function strategy_prompt_summary(array $answers): array
+{
+    $total = count($answers);
+    $correct = count(array_filter($answers, static fn (array $answer): bool => !empty($answer['correct'])));
+    $accuracy = $total > 0 ? (int) round(($correct / $total) * 100) : 0;
+
+    $categoryBuckets = [];
+    foreach ($answers as $answer) {
+        $category = (string) ($answer['category'] ?? 'general');
+        $categoryBuckets[$category] = $categoryBuckets[$category] ?? ['total' => 0, 'correct' => 0];
+        $categoryBuckets[$category]['total']++;
+        if (!empty($answer['correct'])) {
+            $categoryBuckets[$category]['correct']++;
+        }
+    }
+
+    $bestCategory = 'N/A';
+    $bestRate = -1;
+    foreach ($categoryBuckets as $category => $bucket) {
+        $rate = $bucket['total'] > 0 ? $bucket['correct'] / $bucket['total'] : 0;
+        if ($rate > $bestRate) {
+            $bestRate = $rate;
+            $bestCategory = str_replace('_', ' ', ucfirst($category));
+        }
+    }
+
+    return [
+        'total' => $total,
+        'correct' => $correct,
+        'accuracy' => $accuracy,
+        'best_category' => $bestCategory,
+        'best_streak' => longest_correct_streak($answers),
+    ];
+}
+
+function player_style_label(array $game, array $result): string
+{
+    $highestOffer = (float) ($game['stats']['highest_offer'] ?? 0);
+    $selectedValue = (float) ($result['selected_value'] ?? 0);
+    $finalAmount = (float) ($result['final_amount'] ?? 0);
+
+    if ($game['deal_taken'] && $finalAmount >= $selectedValue) {
+        return 'Calculated Exit';
+    }
+
+    if (!$game['deal_taken'] && $finalAmount >= $highestOffer && $highestOffer > 0) {
+        return 'Bold Finish';
+    }
+
+    if (($game['stats']['offers_rejected'] ?? 0) >= 3) {
+        return 'High-Risk Run';
+    }
+
+    return 'Steady Board Control';
+}
+
+function banker_offer_growth(array $game): float
+{
+    $history = $game['offer_history'] ?? [];
+    if (count($history) < 2) {
+        return 0;
+    }
+
+    $first = (float) ($history[0]['offer'] ?? 0);
+    $highest = (float) ($game['stats']['highest_offer'] ?? 0);
+
+    return max(0, $highest - $first);
+}
+
+function leaderboard_snapshot(array $entries): array
+{
+    if ($entries === []) {
+        return [
+            'highest' => 0,
+            'average' => 0,
+            'deal_count' => 0,
+            'no_deal_count' => 0,
+        ];
+    }
+
+    $dealCount = count(array_filter(
+        $entries,
+        static fn (array $entry): bool => (($entry['outcome'] ?? '') === 'Deal')
+    ));
+    $total = array_sum(array_map(static fn (array $entry): float => (float) ($entry['amount'] ?? 0), $entries));
+
+    return [
+        'highest' => (float) ($entries[0]['amount'] ?? 0),
+        'average' => $total / count($entries),
+        'deal_count' => $dealCount,
+        'no_deal_count' => count($entries) - $dealCount,
+    ];
+}

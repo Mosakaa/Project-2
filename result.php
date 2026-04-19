@@ -21,6 +21,12 @@ if ($game['stage'] !== 'complete' && $game['stage'] !== 'banker') {
 $result = finalize_game($game);
 save_game($game);
 
+$promptSummary = strategy_prompt_summary($_SESSION['answers'] ?? []);
+$playerStyle = player_style_label($game, $result);
+$offerGrowth = banker_offer_growth($game);
+$highestOffer = (float) ($game['stats']['highest_offer'] ?? 0);
+$finalVsOffer = $highestOffer > 0 ? (float) $result['final_amount'] - $highestOffer : 0;
+
 render_header('Final Result', [
     'active' => 'game',
     'subtitle' => 'Final payout, case reveal, and game summary.',
@@ -52,15 +58,15 @@ render_header('Final Result', [
         <div class="metric-list">
             <div class="metric">
                 <span>Prompts Answered</span>
-                <strong><?= h((string) count($_SESSION['answers'] ?? [])) ?></strong>
+                <strong><?= h((string) $promptSummary['total']) ?></strong>
             </div>
             <div class="metric">
                 <span>Correct Reads</span>
-                <strong><?= h((string) count(array_filter($_SESSION['answers'] ?? [], static fn (array $answer): bool => (bool) $answer['correct']))) ?></strong>
+                <strong><?= h((string) $promptSummary['correct']) ?></strong>
             </div>
             <div class="metric">
-                <span>Main Themes</span>
-                <strong><?= h(implode(', ', array_slice(array_values(array_unique(array_map(static fn (array $answer): string => (string) $answer['category'], $_SESSION['answers'] ?? []))), 0, 3)) ?: 'N/A') ?></strong>
+                <span>Accuracy</span>
+                <strong><?= h((string) $promptSummary['accuracy']) ?>%</strong>
             </div>
         </div>
     </article>
@@ -92,11 +98,29 @@ render_header('Final Result', [
     </article>
 
     <article class="card">
-        <h2>Play Again</h2>
+        <h2>Performance Notes</h2>
+        <div class="stat-grid">
+            <div class="metric">
+                <span>Play Style</span>
+                <strong><?= h($playerStyle) ?></strong>
+            </div>
+            <div class="metric">
+                <span>Best Category</span>
+                <strong><?= h($promptSummary['best_category']) ?></strong>
+            </div>
+            <div class="metric">
+                <span>Best Streak</span>
+                <strong><?= h((string) $promptSummary['best_streak']) ?></strong>
+            </div>
+            <div class="metric">
+                <span>Offer Growth</span>
+                <strong>$<?= h(money($offerGrowth)) ?></strong>
+            </div>
+        </div>
         <ul class="help-list">
-            <li>Each finished run records a single final score on the leaderboard.</li>
-            <li>Starting again reshuffles every case and clears the banker history.</li>
-            <li>The prompt level returns to Medium at the start of a fresh game.</li>
+            <li><strong>Decision profile:</strong> <?= h(banker_decision_profile($game)) ?></li>
+            <li><strong>Rounds completed:</strong> <?= h((string) ($game['stats']['rounds_completed'] ?? 0)) ?></li>
+            <li><strong>Highest offer gap:</strong> <?= $highestOffer > 0 ? h(($finalVsOffer >= 0 ? '+' : '-') . '$' . money(abs($finalVsOffer))) : 'N/A' ?></li>
         </ul>
     </article>
 </section>

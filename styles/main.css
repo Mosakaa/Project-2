@@ -10,6 +10,7 @@
     --gold: #c89b3c;
     --green: #276749;
     --shadow: 0 18px 40px rgba(64, 41, 12, 0.14);
+    --shadow-soft: 0 10px 24px rgba(64, 41, 12, 0.1);
     --radius: 18px;
 }
 
@@ -25,6 +26,18 @@ body {
         radial-gradient(circle at top left, rgba(200, 155, 60, 0.18), transparent 35%),
         radial-gradient(circle at bottom right, rgba(179, 58, 58, 0.12), transparent 30%),
         linear-gradient(180deg, #f8f1e6 0%, #f2e5d4 100%);
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 a {
@@ -157,6 +170,18 @@ a {
 .leaderboard-table-wrap,
 .timeline-card {
     padding: 1.35rem;
+    animation: fade-up 0.45s ease-out;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.panel:hover,
+.card:hover,
+.auth-card:hover,
+.leaderboard-table-wrap:hover,
+.timeline-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 42px rgba(64, 41, 12, 0.16);
+    border-color: #cfb17b;
 }
 
 .flash {
@@ -225,6 +250,16 @@ button.ghost {
 button:hover,
 input[type="submit"]:hover {
     transform: translateY(-1px);
+}
+
+.button:focus-visible,
+button:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="text"]:focus-visible,
+input[type="password"]:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(200, 155, 60, 0.32);
+    outline-offset: 2px;
 }
 
 .muted {
@@ -299,6 +334,15 @@ select {
     border: 1px solid #ccb894;
     background: #fffdf9;
     color: var(--text);
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #c89b3c;
+    box-shadow: 0 0 0 4px rgba(200, 155, 60, 0.12);
+    background: #fffefc;
 }
 
 .help-list,
@@ -329,6 +373,12 @@ select {
     border-radius: 0;
     background: linear-gradient(180deg, #bc963f, #8c6520);
     min-height: 92px;
+    transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.briefcase button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
 }
 
 .briefcase.selected button {
@@ -434,6 +484,16 @@ select {
     border-radius: 14px;
     background: #fff6ea;
     border: 1px dashed var(--line);
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.85rem;
+}
+
+.leaderboard-stats {
+    margin: 0.25rem 0 1rem;
 }
 
 .site-footer {
