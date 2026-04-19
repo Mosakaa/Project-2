@@ -59,20 +59,12 @@ Deal Or No Deal - PHP is a browser-based game show built with PHP, HTML, and CSS
 5. Review the banker offer and select `Deal` or `No Deal`.
 6. Finish the run and review the result page.
 7. Visit the leaderboard to confirm the score was saved.
+8. On banker rounds, answer the strategy prompt to see the difficulty badge adapt between Easy, Medium, and Hard.
 
 ## Scrum / Process Evidence
 
 - Sprint summary: `SPRINT_LOG.md`
+- Scrum board: `SCRUM_BOARD.md`
+- Daily standups: `STANDUP_NOTES.md`
 - Development journal: `DEVELOPMENT_JOURNAL.md`
 - Project report draft: `PROJECT_REPORT.md`
-
-## AI Usage Disclosure
-
-This repository includes AI-assisted drafting and implementation support. AI was used to help transform the approved proposal and saved assignment webpages into a PHP project structure, shared helper functions, page templates, styling, and repository documentation. Final file selection, requirement mapping, and implementation review were directed and validated against the proposal, topic page, and grading rubric.
-
-## Source / Assignment References
-
-- `Project_2_Proposal.docx`
-- `Project 2 _ PHP-HTML-CSS _ CSC 4370_6370.html`
-- `Project 2 Topics 🌸 _ PHP Games _ CSC 4370_6370.html`
-- `Project 2 Grading Rubric - CSC 4370_6370.html`
