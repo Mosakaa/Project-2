@@ -1,6 +1,6 @@
 # Deal Or No Deal - PHP
 
-Deal Or No Deal - PHP is a browser-based PHP/HTML/CSS game show project for CSC 4370/6370 Spring 2026. It follows the approved proposal flow: users register and log in, choose a personal briefcase, open cases round by round, review banker offers, accept or reject those offers, reveal the final outcome, and save the result to a leaderboard.
+Deal Or No Deal - PHP is a browser-based game show built with PHP, HTML, and CSS. Players register and log in, choose a personal briefcase, open cases round by round, review banker offers, accept or reject those offers, reveal the final outcome, and save the result to a leaderboard.
 
 ## Team
 
@@ -16,11 +16,11 @@ Deal Or No Deal - PHP is a browser-based PHP/HTML/CSS game show project for CSC 
 - Leaderboard persistence using flat JSON files instead of a database
 - Responsive HTML5/CSS3 layout with a shared stylesheet and consistent visual design
 
-## Explicit Additional Features
+## Highlights
 
 - Banker intelligence panel that summarizes volatility, risk band, and offer trends
 - Remembered username cookie for returning users
-- Post-game analytics report with offer history and decision profile
+- Adaptive strategy prompt system with changing difficulty on the banker page
 
 ## File Structure
 
