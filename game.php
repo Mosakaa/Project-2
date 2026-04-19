@@ -61,7 +61,7 @@ $aiLabel = ai_difficulty_label();
 
 render_header('Main Game Board', [
     'active' => 'game',
-    'subtitle' => 'Choose your case, clear the round, and wait for the banker’s next call.',
+    'subtitle' => 'Choose your case and play through the board one round at a time.',
 ]);
 ?>
 
@@ -165,7 +165,7 @@ render_header('Main Game Board', [
 
     <article class="card">
         <h2>Board Watch</h2>
-        <p>A quick read on how friendly or dangerous the board looks right now.</p>
+        <p>Current summary of the remaining board and offer history.</p>
         <ul class="help-list">
             <li><strong>Highest offer so far:</strong> $<?= h(money((float) $game['stats']['highest_offer'])) ?></li>
             <li><strong>Largest value eliminated:</strong> $<?= h(money((float) $game['stats']['largest_value_eliminated'])) ?></li>

@@ -31,7 +31,7 @@ if (is_post()) {
 
 render_header('Log In and Enter the Studio', [
     'active' => 'login',
-    'subtitle' => 'Sign in, claim your case, and head back to the studio floor.',
+    'subtitle' => 'Sign in to start a new game or continue from the board.',
 ]);
 ?>
 
@@ -55,11 +55,11 @@ render_header('Log In and Enter the Studio', [
     </article>
 
     <article class="auth-card">
-        <h2>Quick Notes</h2>
+        <h2>Sign-In Notes</h2>
         <ul class="help-list">
-            <li>This browser can remember your last player name for faster sign-in.</li>
-            <li>Signed-in players can move straight to the main board.</li>
-            <li>Logout ends the current visit and returns you to the home page.</li>
+            <li>Your last username can be remembered on this browser.</li>
+            <li>After login, you are sent to the game board.</li>
+            <li>Logout returns you to the home page.</li>
         </ul>
         <p><a class="button ghost" href="<?= h(app_url('/register.php')) ?>">Need an account? Register</a></p>
     </article>

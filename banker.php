@@ -53,7 +53,7 @@ $lastAiFeedback = $_SESSION['last_ai_feedback'] ?? null;
 
 render_header('Banker Offer', [
     'active' => 'game',
-    'subtitle' => 'The call is in. Hear the offer and decide whether to cash out or press on.',
+    'subtitle' => 'Review the current offer and choose Deal or No Deal.',
 ]);
 ?>
 
@@ -85,13 +85,13 @@ render_header('Banker Offer', [
 
 <section class="two-col">
     <article class="card">
-        <h2>Strategy Pulse</h2>
+        <h2>Strategy Prompt</h2>
         <p><span class="badge"><?= h(ai_difficulty_label()) ?></span></p>
         <p class="muted"><?= h(ai_recent_summary()) ?></p>
         <?php if ($alreadyAnswered && $lastAiFeedback !== null): ?>
             <p><?= h($lastAiFeedback['message']) ?></p>
         <?php elseif ($currentQuestion !== []): ?>
-            <p>A short between-round prompt keeps the pressure on and tracks how sharp your reads are tonight.</p>
+            <p>Answer a short prompt before making the next banker decision.</p>
             <form method="post" action="<?= h(app_url('/banker.php')) ?>" class="stack-form">
                 <input type="hidden" name="action" value="answer_ai">
                 <p><strong><?= h($currentQuestion['prompt']) ?></strong></p>

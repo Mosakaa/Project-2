@@ -62,12 +62,12 @@ function render_footer(): void
     <footer class="site-footer">
         <div class="wrap footer-grid">
             <div>
-                <strong>Inside the Studio</strong>
-                <p>Claim a case, face the banker, and follow every swing on the board.</p>
+                <strong>Game Flow</strong>
+                <p>Choose a case, open the board, and review banker offers after each round.</p>
             </div>
             <div>
-                <strong>Player Perks</strong>
-                <p>Check the biggest wins, pick up where you left off, and sharpen your reads between rounds.</p>
+                <strong>Player Tools</strong>
+                <p>Use the leaderboard, remembered username, and round prompts while you play.</p>
             </div>
         </div>
     </footer>

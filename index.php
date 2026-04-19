@@ -9,14 +9,14 @@ $game = active_game();
 
 render_header('Take the Banker or Trust the Case', [
     'active' => 'home',
-    'subtitle' => 'Pick a case, ride the offers, and see where your luck lands on the board.',
+    'subtitle' => 'Choose a case, play through the rounds, and decide whether to take the banker offer.',
 ]);
 ?>
 
 <section class="hero-grid">
     <article class="panel">
-        <h2>Tonight's Lineup</h2>
-        <p>Create a player profile, lock in your case, survive the banker calls, and see where your run lands on the payout table.</p>
+        <h2>Game Overview</h2>
+        <p>Create an account, choose your case, open the board round by round, and decide when to stop.</p>
         <div class="metric-list">
             <div class="metric">
                 <span>Board Size</span>
@@ -46,18 +46,18 @@ render_header('Take the Banker or Trust the Case', [
     </article>
 
     <article class="panel">
-        <h2>What Stands Out</h2>
+        <h2>Before You Play</h2>
         <ul class="check-list">
-            <li>Create a player name and jump straight into the studio</li>
-            <li>Keep one personal case sealed until the very end</li>
-            <li>Watch banker offers react to the live board</li>
-            <li>Answer short between-round strategy prompts</li>
-            <li>Chase a spot on the biggest-win leaderboard</li>
+            <li>Register once, then log in to start a run</li>
+            <li>Choose one personal briefcase and keep it sealed</li>
+            <li>Open the required number of cases each round</li>
+            <li>Review the banker offer after every completed round</li>
+            <li>Finish the run to place your result on the leaderboard</li>
         </ul>
         <div class="badge-row">
-            <span class="badge">Board watch</span>
-            <span class="badge">Fast sign-in</span>
-            <span class="badge">Live prompt leveling</span>
+            <span class="badge">One player</span>
+            <span class="badge">26 cases</span>
+            <span class="badge">Deal or No Deal</span>
         </div>
     </article>
 </section>
@@ -86,13 +86,13 @@ render_header('Take the Banker or Trust the Case', [
     </article>
 
     <article class="card">
-        <h2>Welcome Back</h2>
+        <h2>Returning Players</h2>
         <?php if (remembered_username() !== ''): ?>
-            <p>Welcome back, <strong><?= h(remembered_username()) ?></strong>. Your last player name is ready so you can get back to the board faster.</p>
+            <p>Welcome back, <strong><?= h(remembered_username()) ?></strong>. Your last username is already filled in on the login page.</p>
         <?php else: ?>
-            <p>This browser can remember the last player name used here, which makes the next sign-in quicker.</p>
+            <p>The login page can remember the last username used on this browser.</p>
         <?php endif; ?>
-        <p class="muted">The payout table stays open to everyone, so past runs are always easy to check.</p>
+        <p class="muted">The leaderboard stays available from the home page at any time.</p>
     </article>
 </section>
 

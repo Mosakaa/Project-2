@@ -23,7 +23,7 @@ save_game($game);
 
 render_header('Final Result', [
     'active' => 'game',
-    'subtitle' => 'The board is closed. Here is how the run ended.',
+    'subtitle' => 'Final payout, case reveal, and game summary.',
 ]);
 ?>
 
@@ -92,7 +92,7 @@ render_header('Final Result', [
     </article>
 
     <article class="card">
-        <h2>Replay Notes</h2>
+        <h2>Next Game</h2>
         <ul class="help-list">
             <li>Each finished run records a single final score on the leaderboard.</li>
             <li>Starting again reshuffles every case and clears the banker history.</li>
