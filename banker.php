@@ -85,7 +85,7 @@ render_header('Banker Offer', [
 
 <section class="two-col">
     <article class="card">
-        <h2>Strategy Prompt</h2>
+        <h2>Round Question</h2>
         <p><span class="badge"><?= h(ai_difficulty_label()) ?></span></p>
         <p class="muted"><?= h(ai_recent_summary()) ?></p>
         <?php if ($alreadyAnswered && $lastAiFeedback !== null): ?>

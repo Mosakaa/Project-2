@@ -164,8 +164,8 @@ render_header('Main Game Board', [
     </article>
 
     <article class="card">
-        <h2>Board Watch</h2>
-        <p>Current summary of the remaining board and offer history.</p>
+        <h2>Current Board</h2>
+        <p>Snapshot of the strongest offers and the amounts still shaping the game.</p>
         <ul class="help-list">
             <li><strong>Highest offer so far:</strong> $<?= h(money((float) $game['stats']['highest_offer'])) ?></li>
             <li><strong>Largest value eliminated:</strong> $<?= h(money((float) $game['stats']['largest_value_eliminated'])) ?></li>

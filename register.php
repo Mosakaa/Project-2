@@ -70,7 +70,7 @@ render_header('Create Your Contestant Account', [
     </article>
 
     <article class="auth-card">
-        <h2>Account Rules</h2>
+        <h2>Before You Register</h2>
         <ul class="help-list">
             <li>Usernames use letters, numbers, and underscores only.</li>
             <li>Passwords must be at least six characters long.</li>

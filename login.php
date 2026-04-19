@@ -55,7 +55,7 @@ render_header('Log In and Enter the Studio', [
     </article>
 
     <article class="auth-card">
-        <h2>Sign-In Notes</h2>
+        <h2>Need to Know</h2>
         <ul class="help-list">
             <li>Your last username can be remembered on this browser.</li>
             <li>After login, you are sent to the game board.</li>

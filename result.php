@@ -46,7 +46,7 @@ render_header('Final Result', [
     </article>
 
     <article class="card">
-        <h2>Strategy Recap</h2>
+        <h2>Round Summary</h2>
         <p><strong>Final Prompt Level:</strong> <?= h(ai_difficulty_label()) ?></p>
         <p><?= h(ai_recent_summary()) ?></p>
         <div class="metric-list">
@@ -92,7 +92,7 @@ render_header('Final Result', [
     </article>
 
     <article class="card">
-        <h2>Next Game</h2>
+        <h2>Play Again</h2>
         <ul class="help-list">
             <li>Each finished run records a single final score on the leaderboard.</li>
             <li>Starting again reshuffles every case and clears the banker history.</li>
