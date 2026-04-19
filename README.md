@@ -24,13 +24,15 @@ Deal Or No Deal - PHP is a browser-based game show built with PHP, HTML, and CSS
 
 ## File Structure
 
-- `index.php` - landing page and rubric-alignment overview
+- `index.php` - landing page and overview
 - `register.php` - registration form and validation
 - `login.php` - login form and session creation
 - `logout.php` - logout and session teardown
 - `game.php` - briefcase board and round progression
 - `banker.php` - banker offer review and deal/no-deal decision
 - `result.php` - final reveal, analytics, leaderboard write
+- `SCRUM_BOARD.md` - sprint backlog with Backlog / In Progress / Review / Done states
+- `STANDUP_NOTES.md` - concise daily standup evidence
 - `leaderboard.php` - public top-score view
 - `includes/` - shared PHP helpers for bootstrap, auth, storage, layout, and game logic
 - `styles/main.css` - responsive stylesheet
@@ -43,11 +45,10 @@ Deal Or No Deal - PHP is a browser-based game show built with PHP, HTML, and CSS
 3. Access `index.php` through the server URL, not by opening the file directly in the browser.
 4. Register at least one user account, log in, and start a new game from `game.php`.
 
-## CODD Deployment Notes
+## Deployment Notes
 
-- Planned CODD URL from the proposal: `codd.cs.gsu.edu/~himran2/WP/PW/2/index.php`
 - The app uses relative base-path helpers so it can run inside a CODD subdirectory without hard-coded root paths.
-- Before submission, test the live URL in an incognito browser window and confirm registration, login, gameplay, banker offers, results, and leaderboard all work.
+- Before publishing, test the live URL in an incognito browser window and confirm registration, login, gameplay, banker offers, results, and leaderboard all work.
 
 ## Usage Guide
 
