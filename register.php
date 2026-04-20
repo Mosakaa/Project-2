@@ -29,8 +29,14 @@ if (is_post()) {
         $errors[] = 'Password confirmation does not match.';
     }
 
-    if ($errors === [] && !create_user($username, $password)) {
-        $errors[] = 'That username is already taken.';
+    if ($errors === []) {
+        try {
+            if (!create_user($username, $password)) {
+                $errors[] = 'That username is already taken.';
+            }
+        } catch (RuntimeException $exception) {
+            $errors[] = 'We could not create the account right now. Please try again in a moment.';
+        }
     }
 
     if ($errors === []) {
